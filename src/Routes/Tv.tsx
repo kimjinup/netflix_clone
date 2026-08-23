@@ -77,7 +77,7 @@ function Tv() {
     <Wrapper>
       <>
         {trendingTvShows && <TvBanner tvShows={trendingTvShows} />}
-        <Header>Tredning TV Shows</Header>
+        <Header>Trending TV Shows</Header>
         {trendingTvShows && (
           <TvSlider
             tvShows={trendingTvShows}

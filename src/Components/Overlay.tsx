@@ -47,6 +47,11 @@ const BigOverview = styled.p`
   color: ${(props) => props.theme.white.lighter};
 `;
 
+const BigInfo = styled.div`
+  color: white;
+  padding: 20px;
+`;
+
 interface IOveralyProps {
   basePath: string;
   movie: IMovie;
@@ -76,6 +81,10 @@ const Overlay = ({ basePath, movie, category }: IOveralyProps) => {
             <BigCover bgPath={movie.backdrop_path || ""} />
             <BigTitle>{movie.title}</BigTitle>
             <BigOverview>{movie.overview}</BigOverview>
+            <BigInfo>
+              <div>Language: {movie.original_language}</div>
+              <div>Release Date: {movie.release_date.replaceAll("-", ".")}</div>
+            </BigInfo>
           </>
         )}
       </BigMovie>
