@@ -8,7 +8,7 @@ import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persi
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { GlobalStyle } from "./GlobalStyhle";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -39,11 +39,11 @@ if (rootElement) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <BrowserRouter>
+          <HashRouter>
             <Routes>
               <Route path="/*" element={<App />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </ThemeProvider>
       </QueryClientProvider>
     </React.StrictMode>,

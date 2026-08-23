@@ -35,5 +35,6 @@
     "globals": "^17.7.0",
     "typescript": "^7.0.2",
     "vite": "^8.2.0"
-  }
+  },
+  "homepage": "https://kimjinup.github.io/netflix_clone"
 }
