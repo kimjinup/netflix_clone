@@ -7,8 +7,8 @@ import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client
 import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persister";
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
-import { GlobalStyle } from "./GlobalStyhle";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalStyle } from "./GlobalStyle";
+import { HashRouter, BrowserRouter, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -25,11 +25,11 @@ if (rootElement) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <BrowserRouter basename="/netflix_clone">
+          <HashRouter>
             <Routes>
               <Route path="/*" element={<App />} />
             </Routes>
-          </BrowserRouter>
+          </HashRouter>
         </ThemeProvider>
       </QueryClientProvider>
     </React.StrictMode>,
