@@ -8,7 +8,7 @@ import { createAsyncStoragePersister } from "@tanstack/query-async-storage-persi
 import { ThemeProvider } from "styled-components";
 import { theme } from "./theme";
 import { GlobalStyle } from "./GlobalStyhle";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,20 +18,6 @@ const queryClient = new QueryClient({
   },
 });
 
-/* 
-const asyncLocalStorage = {
-  getItem: (key: string) => Promise.resolve(window.localStorage.getItem(key)),
-  setItem: (key: string, value: string) =>
-    Promise.resolve(window.localStorage.setItem(key, value)),
-  removeItem: (key: string) =>
-    Promise.resolve(window.localStorage.removeItem(key)),
-};
-
-const persister = createAsyncStoragePersister({
-  storage: asyncLocalStorage, // sessionStorage로 변경 가능
-});
-*/
-
 const rootElement = document.getElementById("root");
 if (rootElement) {
   createRoot(rootElement).render(
@@ -39,11 +25,11 @@ if (rootElement) {
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <GlobalStyle />
-          <HashRouter>
+          <BrowserRouter basename="/netflix_clone">
             <Routes>
               <Route path="/*" element={<App />} />
             </Routes>
-          </HashRouter>
+          </BrowserRouter>
         </ThemeProvider>
       </QueryClientProvider>
     </React.StrictMode>,
